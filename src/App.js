@@ -10,8 +10,6 @@ const App = () => {
 
 	const [ errorMessage, setErrorMessage ] = useState('');
 
-	// const [ query, setQuery ] = useState();
-
 	const onChangeNewTodo = (e) => {
 		setNewTodo(e.target.value);
 	};
@@ -20,16 +18,16 @@ const App = () => {
 			setErrorMessage('Cant leave field empty');
 			return;
 		}
-
 		setTodos(todos.concat(newTodo));
 		setErrorMessage('');
+		setNewTodo('');
 	};
 	return (
 		<div className="container">
 			<div className="todo-card">
 				<h1>Todo List</h1>
 
-				<AddTodo onAddTodo={addNewTodo} onChangeNewTodo={onChangeNewTodo} />
+				<AddTodo onAddTodo={addNewTodo} onChangeNewTodo={onChangeNewTodo} query={newTodo} />
 
 				<ErrorMessage message={errorMessage} />
 				<TodoList todos={todos} />
