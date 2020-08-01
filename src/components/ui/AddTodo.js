@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AddTodo = ({ onAddTodo, onChangeNewTodo }) => {
+const AddTodo = ({ onAddTodo, onChangeNewTodo, query }) => {
 	return (
 		<div className="new-todo">
-			<input type="text" className="add-todo" onChange={onChangeNewTodo} />
+			<input type="text" className="add-todo" onChange={onChangeNewTodo} value={query} defaultValue="" />
 			<button className="btn" onClick={onAddTodo}>
 				Add Todo
 			</button>
