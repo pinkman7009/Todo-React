@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, onDeleteTodo }) => {
 	const display = todos.length === 0 ? 'none' : 'block';
 
 	const todoListStyle = {
@@ -14,7 +14,7 @@ const TodoList = ({ todos }) => {
 	return (
 		<ul style={todoListStyle}>
 			{todos.map((todo, index) => {
-				return <TodoItem key={index} todo={todo} display={display} />;
+				return <TodoItem key={index} todo={todo} display={display} onDeleteTodo={() => onDeleteTodo(index)} />;
 			})}
 		</ul>
 	);

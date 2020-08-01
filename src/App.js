@@ -10,9 +10,12 @@ const App = () => {
 
 	const [ errorMessage, setErrorMessage ] = useState('');
 
+	// To set value of new todo to be added
 	const onChangeNewTodo = (e) => {
 		setNewTodo(e.target.value);
 	};
+
+	// To add a todo
 	const addNewTodo = (e) => {
 		if (!newTodo) {
 			setErrorMessage('Cant leave field empty');
@@ -22,6 +25,14 @@ const App = () => {
 		setErrorMessage('');
 		setNewTodo('');
 	};
+
+	// To delete a todo
+	const deleteTodo = (index) => {
+		const copyTodos = [ ...todos ];
+
+		copyTodos.splice(index, 1);
+		setTodos(copyTodos);
+	};
 	return (
 		<div className="container">
 			<div className="todo-card">
@@ -30,7 +41,7 @@ const App = () => {
 				<AddTodo onAddTodo={addNewTodo} onChangeNewTodo={onChangeNewTodo} query={newTodo} />
 
 				<ErrorMessage message={errorMessage} />
-				<TodoList todos={todos} />
+				<TodoList todos={todos} onDeleteTodo={deleteTodo} />
 			</div>
 		</div>
 	);
