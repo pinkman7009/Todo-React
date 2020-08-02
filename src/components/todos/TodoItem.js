@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 
 const TodoItem = ({ todo, onDeleteTodo, onUpdateTodo }) => {
 	const inputRef = useRef(null);
-
 	const focusInput = () => {
 		inputRef.current.focus();
 	};
@@ -17,9 +16,8 @@ const TodoItem = ({ todo, onDeleteTodo, onUpdateTodo }) => {
 			/>
 
 			<div className="icons">
-				<div style={{ cursor: 'pointer' }} onClick={focusInput}>
-					Up
-				</div>
+				<i className="fas fa-pencil-alt" style={{ cursor: 'pointer' }} onClick={focusInput} />
+
 				<i className="fas fa-trash" style={{ cursor: 'pointer' }} onClick={onDeleteTodo} />
 			</div>
 		</li>
