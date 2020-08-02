@@ -26,6 +26,14 @@ const App = () => {
 		setNewTodo('');
 	};
 
+	const updateTodo = (value, index) => {
+		const copyTodos = [ ...todos ];
+
+		copyTodos[index] = value;
+
+		setTodos(copyTodos);
+	};
+
 	// To delete a todo
 	const deleteTodo = (index) => {
 		const copyTodos = [ ...todos ];
@@ -41,7 +49,7 @@ const App = () => {
 				<AddTodo onAddTodo={addNewTodo} onChangeNewTodo={onChangeNewTodo} query={newTodo} />
 
 				<ErrorMessage message={errorMessage} />
-				<TodoList todos={todos} onDeleteTodo={deleteTodo} />
+				<TodoList todos={todos} onDeleteTodo={deleteTodo} onUpdateTodo={updateTodo} />
 			</div>
 		</div>
 	);

@@ -51,9 +51,7 @@ ul li {
 	width: 90%;
 	margin: 1rem 0;
 }
-form {
-	width: 100%;
-}
+
 .add-todo {
 	padding: 0.6rem;
 	border: 1px solid #333;
@@ -63,6 +61,21 @@ form {
 }
 .add-todo:focus,
 .btn:focus {
+	outline: none;
+}
+
+.icons {
+	display: flex;
+	width: 15%;
+	justify-content: space-between;
+}
+
+.todo-item-input {
+	background: transparent;
+	border: none;
+	font-size: 1rem;
+}
+.todo-item-input:focus {
 	outline: none;
 }
 
