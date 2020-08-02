@@ -18,10 +18,11 @@ const App = () => {
 	// To add a todo
 	const addNewTodo = (e) => {
 		if (!newTodo) {
-			setErrorMessage('Cant leave field empty');
+			setErrorMessage("Can't leave field empty");
 			return;
 		}
-		setTodos(todos.concat(newTodo));
+		setTodos(todos.concat({ text: newTodo }));
+		console.log(todos);
 		setErrorMessage('');
 		setNewTodo('');
 	};
@@ -29,7 +30,7 @@ const App = () => {
 	const updateTodo = (value, index) => {
 		const copyTodos = [ ...todos ];
 
-		copyTodos[index] = value;
+		copyTodos[index].text = value;
 
 		setTodos(copyTodos);
 	};
@@ -44,7 +45,7 @@ const App = () => {
 	return (
 		<div className="container">
 			<div className="todo-card">
-				<h1>Todo List</h1>
+				<h1 style={{ color: '#6a2c70' }}>Todo List</h1>
 
 				<AddTodo onAddTodo={addNewTodo} onChangeNewTodo={onChangeNewTodo} query={newTodo} />
 

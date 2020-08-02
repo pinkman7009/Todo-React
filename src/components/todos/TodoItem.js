@@ -9,7 +9,7 @@ const TodoItem = ({ todo, onDeleteTodo, onUpdateTodo }) => {
 		<li>
 			<input
 				type="text"
-				value={todo}
+				value={todo.text}
 				ref={inputRef}
 				className="todo-item-input"
 				onChange={(e) => onUpdateTodo(e.target.value)}
