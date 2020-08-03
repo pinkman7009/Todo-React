@@ -28,6 +28,7 @@ const App = () => {
 	};
 
 	const updateTodo = (value, index) => {
+		setErrorMessage('');
 		const copyTodos = [ ...todos ];
 
 		copyTodos[index].text = value;
@@ -37,6 +38,7 @@ const App = () => {
 
 	// To delete a todo
 	const deleteTodo = (index) => {
+		setErrorMessage('');
 		const copyTodos = [ ...todos ];
 
 		copyTodos.splice(index, 1);
@@ -49,8 +51,8 @@ const App = () => {
 
 				<AddTodo onAddTodo={addNewTodo} onChangeNewTodo={onChangeNewTodo} query={newTodo} />
 
-				<ErrorMessage message={errorMessage} />
-				<TodoList todos={todos} onDeleteTodo={deleteTodo} onUpdateTodo={updateTodo} />
+				{errorMessage && <ErrorMessage message={errorMessage} />}
+				{todos && <TodoList todos={todos} onDeleteTodo={deleteTodo} onUpdateTodo={updateTodo} />}
 			</div>
 		</div>
 	);

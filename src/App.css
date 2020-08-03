@@ -91,3 +91,9 @@ ul li {
 .btn:hover {
 	background: #0a97b0;
 }
+i {
+	transition: all 0.4s ease;
+}
+i:hover {
+	color: #000;
+}

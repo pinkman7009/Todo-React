@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Error = ({ message }) => {
-	const display = message ? 'block' : 'none';
 	const errorStyle = {
 		width: '90%',
 		background: '#fff',
@@ -10,8 +9,7 @@ const Error = ({ message }) => {
 		textAlign: 'center',
 		fontWeight: 'bold',
 		border: '2px solid red',
-		borderRadius: '5px',
-		display: display
+		borderRadius: '5px'
 	};
 	return <div style={errorStyle}>{message}</div>;
 };
