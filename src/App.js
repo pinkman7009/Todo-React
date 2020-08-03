@@ -47,7 +47,7 @@ const App = () => {
 	return (
 		<div className="container">
 			<div className="todo-card">
-				<h1 style={{ color: '#6a2c70' }}>Todo List</h1>
+				<h1 style={{ color: '#fff', fontWeight: '300' }}>Todo List</h1>
 
 				<AddTodo onAddTodo={addNewTodo} onChangeNewTodo={onChangeNewTodo} query={newTodo} />
 

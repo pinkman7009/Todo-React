@@ -7,7 +7,7 @@
 }
 
 body {
-	background: #1d1b38;
+	background: #b52b65;
 }
 ul {
 	list-style: none;
@@ -24,7 +24,7 @@ ul {
 }
 
 .todo-card {
-	background: #e2979c;
+	background: #221f3b;
 	padding: 1rem;
 	min-height: 50%;
 	width: 400px;
@@ -33,11 +33,12 @@ ul {
 	flex-direction: column;
 	align-items: center;
 	margin: 2rem 0;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 ul li {
-	color: #333;
-	background: #ddf3f5;
+	color: #fff;
+	background: #383e56;
 	margin-bottom: 1rem;
 	padding: 1rem;
 	border: 1px solid #333;
@@ -74,6 +75,8 @@ ul li {
 	background: transparent;
 	border: none;
 	font-size: 1rem;
+	color: #fff;
+	font-weight: bold;
 }
 .todo-item-input:focus {
 	outline: none;
@@ -81,7 +84,8 @@ ul li {
 
 .btn {
 	cursor: pointer;
-	background: #01a9b4;
+	background: #b52b65;
+	color: #fff;
 	border: 1px solid #333;
 	border-radius: 5px;
 	flex: 1;
@@ -89,11 +93,11 @@ ul li {
 	transition: all 0.4s ease;
 }
 .btn:hover {
-	background: #0a97b0;
+	background: #e84a5f;
 }
 i {
 	transition: all 0.4s ease;
 }
 i:hover {
-	color: #000;
+	opacity: 0.5;
 }
