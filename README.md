@@ -13,3 +13,13 @@ This is a Todo List Application made using React. Modern React Hooks like useSta
 
 # Built with 
 1. React Hooks 
+
+# Live Demo at 
+https://todolistpinkman.netlify.app/
+
+# To Run 
+1. Clone into repo
+2. Run ``` npm i ```
+3. Run ``` npm start ```
+4. Visit ``` localhost:3000 ```
+
