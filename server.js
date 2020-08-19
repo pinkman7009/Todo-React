@@ -4,7 +4,7 @@ const todosRouter = require('./routes/todos');
 const connectDB = require('./config/db');
 const { connect } = require('mongoose');
 
-dotenv.config({ path: './config/config.env' });
+dotenv.config({ path: './config/.env' });
 
 const app = express();
 
