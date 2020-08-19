@@ -2,8 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-	res.send('Get all transactions');
-});
+const { getTodos, addTodo, updateTodo, deleteTodo } = require('../controllers/todoController');
+
+router.route('/').get(getTodos).post(addTodo);
+
+router.route('/:id').put(updateTodo).delete(deleteTodo);
 
 module.exports = router;
