@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import TodoList from './components/todos/TodoList';
 import AddTodo from './components/ui/AddTodo';
 import ErrorMessage from './components/ui/Error';
+import axios from 'axios';
 const App = () => {
 	const [ todos, setTodos ] = useState([]);
 
@@ -10,38 +11,73 @@ const App = () => {
 
 	const [ errorMessage, setErrorMessage ] = useState('');
 
+	useEffect(() => {
+		const getTodos = async () => {
+			const result = await axios.get('/api/v1/todos');
+
+			setTodos(result.data.data);
+		};
+		getTodos();
+	}, []);
+
 	// To set value of new todo to be added
 	const onChangeNewTodo = (e) => {
 		setNewTodo(e.target.value);
 	};
 
 	// To add a todo
-	const addNewTodo = (e) => {
+	const addNewTodo = async (e) => {
 		if (!newTodo) {
 			setErrorMessage("Can't leave field empty");
 			return;
 		}
 		setTodos(todos.concat({ text: newTodo }));
-		console.log(todos);
+
+		const config = {
+			headers: {
+				'Content-type': 'application/json'
+			}
+		};
+
+		const todoNew = {
+			text: newTodo
+		};
+
+		const res = await axios.post('/api/v1/todos', todoNew, config);
+
 		setErrorMessage('');
 		setNewTodo('');
 	};
 
-	const updateTodo = (value, index) => {
+	const updateTodo = async (value, index) => {
 		setErrorMessage('');
 		const copyTodos = [ ...todos ];
 
 		copyTodos[index].text = value;
+		const config = {
+			headers: {
+				'Content-type': 'application/json'
+			}
+		};
+
+		const todoUpdated = {
+			text: value
+		};
+
+		const res = await axios.put(`/api/v1/todos/${copyTodos[index]._id}`, todoUpdated, config);
 
 		setTodos(copyTodos);
 	};
 
 	// To delete a todo
-	const deleteTodo = (index) => {
+	const deleteTodo = async (index) => {
 		setErrorMessage('');
 		const copyTodos = [ ...todos ];
 
+		const delID = copyTodos[index]._id;
 		copyTodos.splice(index, 1);
+
+		await axios.delete(`/api/v1/todos/${delID}`);
 		setTodos(copyTodos);
 	};
 	return (
