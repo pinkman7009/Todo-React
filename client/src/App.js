@@ -90,6 +90,14 @@ const App = () => {
 				{errorMessage && <ErrorMessage message={errorMessage} />}
 				{todos && <TodoList todos={todos} onDeleteTodo={deleteTodo} onUpdateTodo={updateTodo} />}
 			</div>
+			<div className="modal-bg">
+				<div className="modal">
+					<h2>Update Todo</h2>
+
+					<input type="text" for="todo" />
+					<button>Update</button>
+				</div>
+			</div>
 		</div>
 	);
 };
