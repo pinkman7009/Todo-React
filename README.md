@@ -11,6 +11,9 @@ This is a Todo List Application made using React. Modern React Hooks like useSta
 1. Connecting to a Node.js server and a MongoDB database to convert this into a complete MERN application.
 2. Authentication 
 
+# Bugs 
+1. Update todo makes an API call on input change which makes the application slow.
+
 # Built with 
 1. React Hooks 
 
