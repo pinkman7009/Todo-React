@@ -95,7 +95,7 @@ const App = () => {
 					<h2>Update Todo</h2>
 
 					<input type="text" for="todo" />
-					<button>Update</button>
+					<button>UPDATE</button>
 				</div>
 			</div>
 		</div>
